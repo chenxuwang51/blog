@@ -25,12 +25,12 @@
 
   
 
-<link rel="canonical" href="https://github.com/chenxuwang51/blog/2021/03/03/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+<link rel="canonical" href="https://github.com/chenxuwang51/blog/2021/04/27/python%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E6%9C%BA%E5%88%B6/">
 
 
 
   <title>
-docker常用命令 |
+python内存管理机制 |
 ChenXu Wang = 王晨旭的技术博客</title>
 <meta name="generator" content="Hexo 5.4.0"></head>
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -58,16 +58,16 @@ ChenXu Wang = 王晨旭的技术博客</title>
         <div id="brand">
           <div class="pjax">
           
-  <h1 itemprop="name headline">docker常用命令
+  <h1 itemprop="name headline">python内存管理机制
   </h1>
   
 <div class="meta">
-  <span class="item" title="Created: 2021-03-03 09:54:39">
+  <span class="item" title="Created: 2021-04-27 09:21:03">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
     <span class="text">Posted on</span>
-    <time itemprop="dateCreated datePublished" datetime="2021-03-03T09:54:39+08:00">2021-03-03</time>
+    <time itemprop="dateCreated datePublished" datetime="2021-04-27T09:21:03+08:00">2021-04-27</time>
   </span>
 </div>
 
@@ -100,12 +100,12 @@ ChenXu Wang = 王晨旭的技术博客</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/008giMJ6ly8gpxepncx8yj31hc0u0u0x.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/008giMJ6ly8gpxfechigjj31hc0u0e81.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/008giMJ6ly8gpxepc7gvfj31hc0u0n2m.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/008giMJ6ly8gpxf249ndaj31920u042i.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/008giMJ6ly8gpxff4ewn5j31hc0u0qki.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/008giMJ6ly8gpxf2kzi17j31hc0u07wi.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/008giMJ6ly8gpxel1oqhhj31hc0u0k3l.jpg"></li>
           <li class="item" data-background-image="https://tva2.sinaimg.cn/large/008giMJ6ly8gpxer36ozqj31c00u04qp.jpg"></li>
           <li class="item" data-background-image="https://tva2.sinaimg.cn/large/008giMJ6ly8gpxel9s2dfj31o00u0dwf.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/008giMJ6ly8gpxf68z7umj31hc0u0tuu.jpg"></li>
         </ul>
       </div>
     </header>
@@ -134,7 +134,7 @@ ChenXu Wang = 王晨旭的技术博客</title>
 </div>
 
     <article itemscope itemtype="http://schema.org/Article" class="post block" lang="en">
-  <link itemprop="mainEntityOfPage" href="https://github.com/chenxuwang51/blog/2021/03/03/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+  <link itemprop="mainEntityOfPage" href="https://github.com/chenxuwang51/blog/2021/04/27/python%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E6%9C%BA%E5%88%B6/">
 
   <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="image" content="/images/wallhaven-q2r6xr.jpg">
@@ -149,68 +149,35 @@ ChenXu Wang = 王晨旭的技术博客</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <!-- -->
+    <!---->
 <span id="more"></span>
-<p>Docker 三大核心: <strong>容器，镜像，仓库</strong></p>
-<p>容器依赖于镜像，仓库类似于 (上传到百度云，git 等)</p>
-<ul>
-<li>
-<p>显示 Docker 系统信息，包括镜像和容器数</p>
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker info</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>查看本地已拥有的镜像</p>
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>拉取所需要的镜像</p>
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull redis(镜像名称)</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>将 images 中所显示的镜像下载到本地文件夹</p>
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker save -o <span class="string">&#x27;c:/tmp/redis.tar&#x27;</span> redis</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>将本地的镜像下载到 Docker</p>
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker load -i <span class="string">&#x27;c:/tmp/redis.tar&#x27;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>根据 docker images 中所显示的 IMAGE ID 删除镜像</p>
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rmi -f 镜像ID</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>显示正在运行中的容器</p>
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>显示所有容器</p>
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>结束正在运行中的容器</p>
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker stop 容器ID</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>根据容器 ID 运行对应容器</p>
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker start 容器ID</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>根据容器 ID 删除对应的容器，容器 ID 是 docker ps 中的 CONTAINER ID</p>
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rm 容器ID</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>获取本机所分配的 IP（如果使用的是 dockerdesktop，连接时则使用本机 IP 地址 127.0.0.1）</p>
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-machine ip default</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>运行指定的容器 (redis)  6380:6379 (指定端口号，如本机已经安装有 Redis，错开默认的端口)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 6380:6379 redis</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>连接已启动容器的 redis</p>
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-cli -h <span class="number">127.0</span>.<span class="number">0.1</span> -p <span class="number">6380</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
+<p><strong>内存管理</strong></p>
+<p>Python 有一个私有的堆空间来保存所有的对象和数据结构，我们无法访问它，是由解释器在管理。</p>
+<p><strong>对象存储</strong></p>
+<p>在 Python 中，万物皆对象，每一个对象第一次被创建时都会在内存中开辟一块空间来存储。</p>
+<p><strong>引用计数</strong></p>
+<p>每创建一个对象，对应的引用为 1。如果这个对象被赋值或引用时，对应的引用计数 + 1，如果被销毁，引用计数 - 1. 若该对象的引用计数为 0 时，对象会自动销毁。</p>
+<p><strong>循环引用</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a_list = []</span><br><span class="line">b_list = []</span><br><span class="line">a_list.append(b_list)</span><br><span class="line">b_list.append(a_list)</span><br></pre></td></tr></table></figure>
+<p>a_list 与 b_list 相互引用，如果不存在其他对象对他们的引用。a_list 与 b_list 的引用计数也仍然为 1，所占用的内存永远无法被回收，这将是致命的。</p>
+<p><strong>标记・清除</strong></p>
+<p>标记清除机制其实就是为了解决 循环引用问题的，首先遍历所有对象，如果对象除了循环引用外还有别的引用，说明其有效，就标记为存在，如果不存在，则对其进行清除。</p>
+<p><strong>分代回收</strong></p>
+<p>这种机制是典型的以空间换时间的技术。当对象被创建时标记为第 0 代，经过一次垃圾回收后，余下的对象被标记为第 1 代，最高为第 2 代。0 代触发将清理所有 3 代，1 代触发会清理 1,2 代，2 代触发后只会清理自己。</p>
+<p>也就是说：对象存在的时间越长，越可能不是垃圾，应该越少去收集。</p>
+<p><strong>对象缓存</strong></p>
+<p>类型值的内置数据类型，数字，字符串，列表，字典等都会有自己的对象缓存池，这样做可以避免频繁的申请内存，释放内存，但是会极大的降低应用程序的运行速度，还会造成大量的碎片。因此提供对象缓存机制是非常必要的。</p>
+<p><strong>多次赋值</strong></p>
+<p>对于整数和较短的字符，Python 会进行缓存，不会创建多个相同对象。</p>
+<p>此时被多次赋值，只会有多份引用。</p>
+<p><strong>内存地址</strong></p>
+<p>可以通过 id () 来查看</p>
+<p>a is b 判断 a 对象是否就是 b 对象（通过 id 来判断）</p>
+<p>a == b 判断 a 对象的值是否和 b 对象的值相等（通过 value 来判断）</p>
+<p><strong>内存占用</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sys.getsizeof(a)</span><br></pre></td></tr></table></figure>
+<p><strong>查看引用计数</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sys.getrefcount(a)</span><br></pre></td></tr></table></figure>
 
   </div>
 
@@ -222,7 +189,7 @@ ChenXu Wang = 王晨旭的技术博客</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">Edited on</span>
-    <time title="Modified: 2021-03-03 10:18:11" itemprop="dateModified" datetime="2021-03-03T10:18:11+08:00">2021-03-03</time>
+    <time title="Modified: 2021-04-28 11:52:26" itemprop="dateModified" datetime="2021-04-28T11:52:26+08:00">2021-04-28</time>
   </span>
 </div>
 
@@ -258,7 +225,7 @@ ChenXu Wang = 王晨旭的技术博客</title>
   </li>
   <li class="link">
     <strong>Post link: </strong>
-    <a href="https://github.com/chenxuwang51/blog/2021/03/03/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" title="docker常用命令">https://github.com/chenxuwang51/blog/2021/03/03/docker常用命令/</a>
+    <a href="https://github.com/chenxuwang51/blog/2021/04/27/python%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E6%9C%BA%E5%88%B6/" title="python内存管理机制">https://github.com/chenxuwang51/blog/2021/04/27/python内存管理机制/</a>
   </li>
   <li class="license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
@@ -277,22 +244,14 @@ ChenXu Wang = 王晨旭的技术博客</title>
     <div class="item left">
       
 
-  <a href="/2021/03/01/Vue/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;008giMJ6ly8gpxfeoa3y9j31gp0u01ky.jpg" title="Ant Design of Vue">
+  <a href="/2021/03/30/git%E5%88%86%E6%94%AF/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;008giMJ6ly8gpxfeyq9hwj31cd0u07ek.jpg" title="git分支">
   <span class="type">Previous Post</span>
   <span class="category"><i class="ic i-flag"></i> </span>
-  <h3>Ant Design of Vue</h3>
+  <h3>git分支</h3>
   </a>
 
     </div>
     <div class="item right">
-      
-
-  <a href="/2021/03/18/%E4%B8%83%E7%89%9B%E4%BA%91%E4%B8%8A%E4%BC%A0/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;008giMJ6ly8gpxel5tzztj31hc0tw1b7.jpg" title="七牛云上传">
-  <span class="type">Next Post</span>
-  <span class="category"><i class="ic i-flag"></i> </span>
-  <h3>七牛云上传</h3>
-  </a>
-
     </div>
 </div>
 
@@ -354,12 +313,10 @@ ChenXu Wang = 王晨旭的技术博客</title>
 
   <ul id="quick">
     <li class="prev pjax">
-        <a href="/2021/03/01/Vue/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
     </li>
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
     <li class="next pjax">
-        <a href="/2021/03/18/%E4%B8%83%E7%89%9B%E4%BA%91%E4%B8%8A%E4%BC%A0/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
     </li>
     <li class="percent"></li>
   </ul>
@@ -383,52 +340,7 @@ ChenXu Wang = 王晨旭的技术博客</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2021/03/30/git%E5%88%86%E6%94%AF/" title="git分支">git分支</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2021/03/18/%E4%B8%83%E7%89%9B%E4%BA%91%E4%B8%8A%E4%BC%A0/" title="七牛云上传">七牛云上传</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2021/01/21/%E9%A1%B5%E9%9D%A2%E8%A7%86%E9%A2%91%E7%94%BB%E4%B8%AD%E7%94%BB%E5%8A%9F%E8%83%BD/" title="页面视频画中画功能">页面视频画中画功能</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2021/01/18/1-18%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="位运算算法基础（二进制）">位运算算法基础（二进制）</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2021/01/14/JWT/" title="JWT">JWT</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2021/03/21/MongoDB%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/" title="MongoDB基础命令">MongoDB基础命令</a></span>
+    <span><a href="/2021/01/13/sms-code/" title="图片验证码">图片验证码</a></span>
   </li>
 
       
@@ -464,7 +376,52 @@ ChenXu Wang = 王晨旭的技术博客</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2021/01/20/%E5%88%86%E9%A1%B5/" title="分页">分页</a></span>
+    <span><a href="/2021/01/19/%E9%80%92%E5%BD%92%E6%97%A0%E9%99%90%E8%AF%BE%E7%A8%8B%E5%88%86%E7%B1%BB/" title="递归无限课程分类">递归无限课程分类</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/01/12/hello-world/" title="Hello World">Hello World</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/03/18/%E4%B8%83%E7%89%9B%E4%BA%91%E4%B8%8A%E4%BC%A0/" title="七牛云上传">七牛云上传</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/01/13/selenium/" title="selenium">selenium</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/03/30/git%E5%88%86%E6%94%AF/" title="git分支">git分支</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2021/01/18/1-18%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="位运算算法基础（二进制）">位运算算法基础（二进制）</a></span>
   </li>
 
   </ul>
@@ -495,7 +452,7 @@ ChenXu Wang = 王晨旭的技术博客</title>
   </div>
 <script data-config type="text/javascript">
   var LOCAL = {
-    path: '2021/03/03/docker常用命令/',
+    path: '2021/04/27/python内存管理机制/',
     favicon: {
       show: "（●´3｀●）Goooood",
       hide: "(´Д｀)Booooom"
