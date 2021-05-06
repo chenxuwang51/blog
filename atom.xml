@@ -3,7 +3,37 @@
     <id>https://github.com/chenxuwang51/blog</id>
     <title>王晨旭的技术博客</title>
     <link href="https://github.com/chenxuwang51/blog" />
-    <updated>2021-04-27T01:21:03.000Z</updated>
+    <updated>2021-05-05T23:59:06.000Z</updated>
+    <entry>
+        <id>https://github.com/chenxuwang51/blog/2021/05/06/%E8%A7%A3%E9%87%8A%E5%99%A8/</id>
+        <title>解释器</title>
+        <link rel="alternate" href="https://github.com/chenxuwang51/blog/2021/05/06/%E8%A7%A3%E9%87%8A%E5%99%A8/"/>
+        <content type="html">&lt;!----&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
+&lt;h3 id=&#34;解释器定义&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#解释器定义&#34;&gt;#&lt;/a&gt; 解释器定义&lt;/h3&gt;
+&lt;p&gt;解释器（Interpreter），又译为直译器，是一种电脑程序，能够把高级&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9iYWlrZS5iYWlkdS5jb20vaXRlbS8lRTclQkMlOTYlRTclQTglOEIlRTglQUYlQUQlRTglQTglODA=&#34;&gt;编程语言&lt;/span&gt;一行一行直接转译运行。解释器不会一次把整个程序转译出来，只像一位 “中间人”，每次运行程序时都要先转成另一种语言再作运行，因此解释器的程序运行速度比较缓慢。它每转译一行程序叙述就立刻运行，然后再转译下一行，再运行，如此不停地进行下去。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Python 是一门解释器语言，代码想运行，必须通过解释器执行，Python 存在多种解释器，分别基于不同的语言开发，每个解释器都有不同的特点。&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;CPython&lt;/p&gt;
+&lt;p&gt;Python 的默认解释器，是使用 C 语言开发的，所以叫 CPython，也是使用最广的。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;IPython&lt;/p&gt;
+&lt;p&gt;是基于 CPython 之上的一个交互式解释器，只是在交互上有所增强。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;PyPy&lt;/p&gt;
+&lt;p&gt;对 Python 代码进行动态编译，显著提高 Python 代码的执行速度&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;gil全局解释器锁&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#gil全局解释器锁&#34;&gt;#&lt;/a&gt; GIL 全局解释器锁&lt;/h3&gt;
+&lt;p&gt;保证同一时刻只有一个线程对资源有操作权限（使用 CPU），相当于是单线程执行，它也是 CPython 解释器的特性，所以 Python 也是被人诟病说是伪多线程。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;如何避免&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;可以使用多进程或者协程，或者换解释器，例如 PyPy。&lt;/p&gt;
+</content>
+        <updated>2021-05-05T23:59:06.000Z</updated>
+    </entry>
     <entry>
         <id>https://github.com/chenxuwang51/blog/2021/04/27/python%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E6%9C%BA%E5%88%B6/</id>
         <title>python内存管理机制</title>
